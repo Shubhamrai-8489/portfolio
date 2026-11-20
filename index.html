@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shubham Rai Portfolio</title>
+<meta name="description" content="Shubham Rai – Digital Marketer, AI video and ad content. Portfolio of ad films, animated series, AI presenters, motion graphics and social posts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --ink:#16161a; --muted:#5d5d66; --line:#e3e1db;
+  --accent:#e4572e; --accent-ink:#ffffff; --chip:#efede7;
+  --radius:14px; --gutter:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111114; --surface:#1a1a1f; --ink:#f1f0ec; --muted:#a3a2ab; --line:#2a2a31;
+    --accent:#ff6b42; --accent-ink:#111114; --chip:#24242b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111114; --surface:#1a1a1f; --ink:#f1f0ec; --muted:#a3a2ab; --line:#2a2a31;
+  --accent:#ff6b42; --accent-ink:#111114; --chip:#24242b;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--gutter)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h2{font-size:clamp(26px,5vw,38px);margin-bottom:8px}
+.lede{color:var(--muted);max-width:640px;margin:0 0 28px}
+
+/* hero */
+.hero{padding:72px 0 56px;border:0}
+.hero h1{font-size:clamp(44px,11vw,92px);letter-spacing:-.02em}
+.hero .role{font-family:"Space Grotesk",sans-serif;font-size:clamp(18px,3.6vw,26px);margin:14px 0 18px}
+.hero .role span{color:var(--accent)}
+.hero p.pitch{max-width:620px;color:var(--muted);font-size:17px;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:focus-visible,.post:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.loc{margin-top:18px;font-size:14px;color:var(--muted)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stat{background:var(--surface);padding:20px 16px}
+.stat b{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,6vw,40px);line-height:1}
+.stat span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+
+/* video grid */
+.vgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+@media(min-width:760px){.vgrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.card.wide{grid-column:1/-1}
+@media(min-width:760px){.card.wide{grid-column:span 2}}
+.card video{display:block;width:100%;aspect-ratio:9/16;background:#000;object-fit:cover}
+.card.wide video{aspect-ratio:16/9}
+.card .meta{padding:12px 12px 14px}
+.card h3{font-size:16px;margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.tag{font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.tag.brand{background:var(--accent);color:var(--accent-ink)}
+.card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.45}
+h3.sub{font-size:20px;margin:44px 0 6px}
+
+/* posts */
+.pgrid{columns:2;column-gap:12px}
+@media(min-width:760px){.pgrid{columns:3;column-gap:18px}}
+@media(min-width:1000px){.pgrid{columns:4}}
+.post{display:block;width:100%;margin:0 0 12px;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);cursor:zoom-in;break-inside:avoid;text-align:left;color:inherit;font:inherit}
+.post img{display:block;width:100%;height:auto}
+.post span{display:block;padding:8px 10px;font-size:12.5px;color:var(--muted)}
+dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1080px);max-height:92vh}
+dialog::backdrop{background:rgba(10,10,12,.88)}
+dialog img{display:block;max-width:100%;max-height:84vh;margin:0 auto;border-radius:8px}
+dialog p{color:#eee;text-align:center;font-size:14px;margin:10px 0 0}
+dialog button{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:#111;font-size:22px;cursor:pointer}
+
+/* organic reel list */
+.reels{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+@media(min-width:760px){.reels{grid-template-columns:repeat(2,1fr)}}
+.reels a{display:flex;gap:12px;align-items:baseline;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;text-decoration:none;font-size:14.5px;color:var(--muted)}
+.reels a:hover{border-color:var(--accent)}
+.reels a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.reels b{font-family:"Space Grotesk",sans-serif;color:var(--ink);min-width:54px}
+
+/* skills */
+.skills{display:grid;gap:14px}
+@media(min-width:760px){.skills{grid-template-columns:repeat(2,1fr)}}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.skill h3{font-size:18px;margin-bottom:10px}
+.skill ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips .tag{font-size:13px;padding:6px 12px}
+
+.contact{text-align:left}
+.contact h2{font-size:clamp(30px,7vw,52px);margin-bottom:12px}
+footer{padding:28px 0 40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio · 2026</p>
+    <h1>Shubham Rai</h1>
+    <p class="role">Digital Marketer · <span>AI Video &amp; Ad Content</span></p>
+    <p class="pitch">I run Meta ads for loan apps and produce AI-powered ad films, animated series, AI presenters and motion graphics at scale, from script and voice-over to final edit, in Hindi, Hinglish and English.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:raishubham8361@gmail.com">raishubham8361@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/shubhamrai-content" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#work">See the work ↓</a>
+    </div>
+    <p class="loc">New Delhi, India · Open to Digital Marketing Executive roles</p>
+  </div>
+</header>
+
+<section aria-label="Highlights">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>397</b><span>videos produced, Sep–Nov 2026 (all versions &amp; formats)</span></div>
+      <div class="stat"><b>467</b><span>social posts in the same two months</span></div>
+      <div class="stat"><b>7</b><span>brands in fintech and lending tech</span></div>
+      <div class="stat"><b>≤ ₹200</b><span>cost per loan disbursal on Meta ads</span></div>
+      <div class="stat"><b>97.3K</b><span>views on my best Quikkred reel</span></div>
+      <div class="stat"><b>7</b><span>Quikkred reels above 47K views</span></div>
+      <div class="stat"><b>1.5+ yrs</b><span>in fintech and agency marketing</span></div>
+      <div class="stat"><b>Sep 2026</b><span>Employee of the Month</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Video work</p>
+    <h2>Ads, series and explainers</h2>
+    <p class="lede">A selection from 397 videos. Scripted, produced and edited by me with AI tools, for vertical feeds (9:16) and YouTube/LinkedIn (16:9). Tap to play with sound.</p>
+
+    <div class="vgrid">
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/meta-bike-plan.jpg"><source src="media/meta-bike-plan.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Bike Plan · Meta ad</h3>
+          <div class="tags"><span class="tag brand">Quikkred</span><span class="tag">9:16 · 10 s</span><span class="tag">Hinglish</span></div>
+          <p>10-second performance ad: AI-generated scenes, real app screen on the phone, mascot end card with offer CTA.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/vikam-diwali-budget.jpg"><source src="media/vikam-diwali-budget.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Diwali Budget</h3>
+          <div class="tags"><span class="tag brand">Vikam</span><span class="tag">9:16 · 26 s</span><span class="tag">Hindi</span></div>
+          <p>Festive story reel for a loan app: script, AI visuals, emotional Hindi voice-over and Play Store CTA.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/qc-dubai-se-wapsi.jpg"><source src="media/qc-dubai-se-wapsi.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Back from Dubai</h3>
+          <div class="tags"><span class="tag brand">Quikkred Collect</span><span class="tag">9:16 · 30 s</span><span class="tag">Hindi</span></div>
+          <p>Recruitment ad for field partners told as a short film: a father who wants work close to home.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/ugc-behen-ki-shaadi.jpg"><source src="media/ugc-behen-ki-shaadi.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Sister's Wedding · UGC style</h3>
+          <div class="tags"><span class="tag brand">Quikkred</span><span class="tag">9:16 · 28 s</span><span class="tag">Hinglish</span></div>
+          <p>Photoreal AI presenter filmed selfie-style, lip-synced to a natural voice-over, then an in-app walkthrough.</p></div>
+      </article>
+
+      <article class="card wide">
+        <video controls preload="none" playsinline poster="media/xylos-ugc-3-checks.jpg"><source src="media/xylos-ugc-3-checks.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Three Checks · UGC ad</h3>
+          <div class="tags"><span class="tag brand">Xylos</span><span class="tag">16:9 · 19 s</span><span class="tag">English</span></div>
+          <p>English AI presenter ad with UI call-outs and a motion-graphic end card, built natively for landscape.</p></div>
+      </article>
+
+      <article class="card wide">
+        <video controls preload="none" playsinline poster="media/fluxus-forge-intro.jpg"><source src="media/fluxus-forge-intro.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Company intro · kinetic type</h3>
+          <div class="tags"><span class="tag brand">Fluxus Forge</span><span class="tag">16:9 · 27 s</span><span class="tag">English</span></div>
+          <p>B2B brand film for a lending-tech company, made for LinkedIn: kinetic typography, 3D props, music-cut edit.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/raju-trik-ep05.jpg"><source src="media/raju-trik-ep05.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Raju &amp; Trik · Episode 5</h3>
+          <div class="tags"><span class="tag brand">Quikkred</span><span class="tag">9:16 · 57 s</span><span class="tag">Hindi</span></div>
+          <p>2D animated series with recurring characters: character sheets, AI-animated shots, camera moves and Hindi VO.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/paisa-ki-psychology-ep01.jpg"><source src="media/paisa-ki-psychology-ep01.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Paisa Ki Psychology · Ep 1</h3>
+          <div class="tags"><span class="tag brand">Quikkred</span><span class="tag">9:16 · 62 s</span><span class="tag">Hinglish</span></div>
+          <p>Finance-education series adapted from a money-psychology book into short animated stories.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/salary-loading.jpg"><source src="media/salary-loading.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Salary Loading…</h3>
+          <div class="tags"><span class="tag brand">Quikkred</span><span class="tag">9:16 · 33 s</span><span class="tag">Hinglish</span></div>
+          <p>Isometric motion graphic: a salary "drains" bill by bill, then the emergency-fund and app message.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/loan-apply-steps.jpg"><source src="media/loan-apply-steps.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>How to apply, step by step</h3>
+          <div class="tags"><span class="tag brand">Quikkred</span><span class="tag">9:16 · 41 s</span><span class="tag">English on-screen</span></div>
+          <p>App explainer: real app screens in a 3D phone, numbered steps, typing sound design and voice-over.</p></div>
+      </article>
+
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/connect-commission.jpg"><source src="media/connect-commission.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>When do I earn commission?</h3>
+          <div class="tags"><span class="tag brand">Quikkred Connect</span><span class="tag">9:16 · 24 s</span><span class="tag">Hindi</span></div>
+          <p>Partner-app explainer from a 15-day content calendar: one question, one answer, in-app UI and clear CTA.</p></div>
+      </article>
+    </div>
+
+    <h3 class="sub">Personal project · @insidedaily.in</h3>
+    <p class="lede">My own Instagram channel explaining how everyday things work, in 2D and 3D animation (concept, script, animation and edit by me).</p>
+    <div class="vgrid">
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/insidedaily-upi.jpg"><source src="media/insidedaily-upi.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>How UPI works in 2 seconds</h3>
+          <div class="tags"><span class="tag brand">insidedaily.in</span><span class="tag">9:16 · 36 s</span><span class="tag">English</span></div>
+          <p>2D explainer: from PIN to NPCI switch to the bank, with step counters and captions.</p></div>
+      </article>
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/insidedaily-pressure-cooker-3d.jpg"><source src="media/insidedaily-pressure-cooker-3d.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Inside a pressure cooker</h3>
+          <div class="tags"><span class="tag brand">insidedaily.in</span><span class="tag">9:16 · 68 s</span><span class="tag">English</span></div>
+          <p>3D animation built in Blender: steam, pressure and the whistle explained in cutaway.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="organic">
+  <div class="wrap">
+    <p class="eyebrow">Organic content</p>
+    <h2>Organic social: accounts I ran and built</h2>
+    <p class="lede">Brand and personal Instagram accounts where I made and posted the content myself. View counts are the public numbers shown on Instagram, checked on 20 Nov 2026. Tap a reel to watch it on Instagram.</p>
+
+    <h3 class="sub">@quikkred · company Instagram, run solo May–Jul 2026</h3>
+    <div class="stats">
+      <div class="stat"><b>56 + 12</b><span>posts and reels I made and published, May–Jul 2026</span></div>
+      <div class="stat"><b>97.3K</b><span>views on my best reel</span></div>
+      <div class="stat"><b>7</b><span>reels above 47K views</span></div>
+      <div class="stat"><b>From 0</b><span>launched @quikkredcollect (today 90 posts, 570 followers)</span></div>
+    </div>
+    <ul class="reels">
+      <li><a href="https://www.instagram.com/reel/DaSCbQ2TMo5/" target="_blank" rel="noopener"><b>97.3K</b> The friend who treats your bank account like an ATM · Jul 2026</a></li>
+      <li><a href="https://www.instagram.com/reel/DYl9A5tzYu3/" target="_blank" rel="noopener"><b>66.6K</b> Rahul's story: missed repayments and your credit score · May 2026</a></li>
+      <li><a href="https://www.instagram.com/reel/DX1FE8ByzMO/" target="_blank" rel="noopener"><b>62K</b> Need an emergency loan? · May 2026</a></li>
+      <li><a href="https://www.instagram.com/reel/DZcZm0aygRk/" target="_blank" rel="noopener"><b>57.8K</b> Financial stress hitting all at once · Jun 2026</a></li>
+      <li><a href="https://www.instagram.com/reel/DYB6tz3yuj8/" target="_blank" rel="noopener"><b>52.4K</b> Quikkred reel · May 2026</a></li>
+      <li><a href="https://www.instagram.com/reel/DYMs13wTEFM/" target="_blank" rel="noopener"><b>51.2K</b> Concert ready, pocket empty (Hinglish) · May 2026</a></li>
+      <li><a href="https://www.instagram.com/reel/DbGJeblB1n1/" target="_blank" rel="noopener"><b>47.2K</b> Life doesn't give you time to prepare · Jul 2026</a></li>
+    </ul>
+
+    <h3 class="sub">@make_dly · my personal Instagram</h3>
+    <p class="lede">Self-shot "day in my life" reels: moody desk b-roll with one punchy line of text. The reach comes from Explore, far beyond the follower count.</p>
+    <div class="stats">
+      <div class="stat"><b>42.2K</b><span>views on my best reel</span></div>
+      <div class="stat"><b>20.2K</b><span>views on the second best</span></div>
+      <div class="stat"><b>≈ 120K</b><span>total views across 43 reels</span></div>
+      <div class="stat"><b>54</b><span>followers: reach is ~2,200× the audience</span></div>
+    </div>
+    <ul class="reels">
+      <li><a href="https://www.instagram.com/reel/DYeV4jcJls2/" target="_blank" rel="noopener"><b>42.2K</b> Dark desk shot + one-line text</a></li>
+      <li><a href="https://www.instagram.com/reel/DYr2jbnJiHL/" target="_blank" rel="noopener"><b>20.2K</b> "Behind every man's irresponsible purchase…"</a></li>
+      <li><a href="https://www.instagram.com/reel/DY6eNAnJkDE/" target="_blank" rel="noopener"><b>11.7K</b> "NEVER"</a></li>
+    </ul>
+
+    <h3 class="sub">@insidedaily.in · my animated explainer channel</h3>
+    <p class="lede">Started 31 Oct 2026. 18 reels so far, ≈12K total views; the best episodes reach about 1.5K views each with under 10 followers.</p>
+    <div class="vgrid">
+      <article class="card">
+        <video controls preload="none" playsinline poster="media/insidedaily-fan.jpg"><source src="media/insidedaily-fan.mp4" type="video/mp4"></video>
+        <div class="meta"><h3>Why a fan makes you feel cold</h3>
+          <div class="tags"><span class="tag brand">insidedaily.in</span><span class="tag">9:16 · 44 s</span><span class="tag">1,499 views</span></div>
+          <p>Joint top episode on the channel. 2D explainer: the fan doesn't cool the air, it cools you.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="posts">
+  <div class="wrap">
+    <p class="eyebrow">Social posts</p>
+    <h2>Static creatives &amp; thumbnails</h2>
+    <p class="lede">Feed posts, paid-social ads and YouTube thumbnails across six brands. Tap any post to enlarge.</p>
+    <div class="pgrid" id="pgrid">
+      <button class="post" type="button" data-cap="Quikkred · Instagram feed post"><img loading="lazy" src="media/post-month-end-sorted.jpg" alt="Quikkred post: Month-end, sorted, with the 3D mascot in a hammock" width="864" height="1080"><span>Quikkred · Month-end, sorted</span></button>
+      <button class="post" type="button" data-cap="Fluxus Forge · LinkedIn ad (B2B)"><img loading="lazy" src="media/post-fluxus-seven-modules.jpg" alt="Fluxus Forge ad: seven modules, one connected platform" width="1080" height="1080"><span>Fluxus Forge · LinkedIn ad</span></button>
+      <button class="post" type="button" data-cap="Quikkred Collect · partner recruitment post"><img loading="lazy" src="media/post-qc-take-the-lead.jpg" alt="Quikkred Collect post: Take the lead in the field" width="864" height="1080"><span>Quikkred Collect · Take the Lead</span></button>
+      <button class="post" type="button" data-cap="Xylos · paid social ad"><img loading="lazy" src="media/post-xylos-no-silly-question.jpg" alt="Xylos ad: No question is a silly question" width="864" height="1080"><span>Xylos · No silly question</span></button>
+      <button class="post" type="button" data-cap="Quikkred · Paisa Ki Psychology YouTube thumbnail"><img loading="lazy" src="media/post-thumb-paisa-ki-psychology.jpg" alt="YouTube thumbnail for Paisa Ki Psychology episode 1" width="1080" height="608"><span>Quikkred · Series thumbnail</span></button>
+      <button class="post" type="button" data-cap="Quikkred · Instagram feed post"><img loading="lazy" src="media/post-you-became-your-bills.jpg" alt="Quikkred post: You became your bills" width="864" height="1080"><span>Quikkred · You Became Your Bills</span></button>
+      <button class="post" type="button" data-cap="Fluxus Forge · LinkedIn ad (B2B)"><img loading="lazy" src="media/post-fluxus-score-applicant.jpg" alt="Fluxus Forge ad: score every applicant on your own data" width="864" height="1080"><span>Fluxus Forge · AI decisioning ad</span></button>
+      <button class="post" type="button" data-cap="Vikam · Paisa Series cover (Hindi)"><img loading="lazy" src="media/post-thumb-vikam-diwali.jpg" alt="Vikam Hindi cover: celebrate Diwali without debt" width="607" height="1080"><span>Vikam · Series cover</span></button>
+      <button class="post" type="button" data-cap="Quikkred Collect · partner recruitment post"><img loading="lazy" src="media/post-qc-built-for-the-field.jpg" alt="Quikkred Collect post: Built for the field, ready for the move" width="864" height="1080"><span>Quikkred Collect · Built for the Field</span></button>
+      <button class="post" type="button" data-cap="Xylos · platform feature post"><img loading="lazy" src="media/post-xylos-smart-features.jpg" alt="Xylos post: Explore smart features, blue glass 3D style" width="864" height="1080"><span>Xylos · Smart Features</span></button>
+      <button class="post" type="button" data-cap="Quikkred Collect · Kamai Series YouTube thumbnail"><img loading="lazy" src="media/post-thumb-kamai-ep07.jpg" alt="Quikkred Collect YouTube thumbnail: same 8 addresses, 62 km?" width="1080" height="608"><span>Quikkred Collect · Series thumbnail</span></button>
+      <button class="post" type="button" data-cap="Quikkred · launch announcement post"><img loading="lazy" src="media/post-omg-may-20.jpg" alt="Quikkred post: OMG, your wait is almost over, May 20" width="864" height="1080"><span>Quikkred · Launch teaser</span></button>
+    </div>
+  </div>
+</section>
+
+<dialog id="lb" aria-label="Enlarged post">
+  <button type="button" aria-label="Close">×</button>
+  <img alt="">
+  <p></p>
+</dialog>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Skills &amp; tools</p>
+    <h2>What I bring</h2>
+    <p class="lede">Performance marketing and content production in one person.</p>
+    <div class="skills">
+      <div class="skill"><h3>Performance marketing</h3><ul><li>Meta Ads Manager: campaign setup and optimisation</li><li>Funnel tracking from ads to onboarding to loan disbursal</li><li>LinkedIn ad creatives for a B2B parent company</li></ul></div>
+      <div class="skill"><h3>CRM &amp; retention</h3><ul><li>Lead tracking on an in-house CRM</li><li>WhatsApp campaigns</li><li>Managed company social accounts (May–Jul 2026)</li></ul></div>
+      <div class="skill"><h3>Content &amp; video</h3><ul><li>AI ad films, AI characters and presenters</li><li>Explainer and storytelling series, app explainers, motion graphics</li><li>Scriptwriting (Hinglish/English), AI and cloned voice-overs</li><li>Real-actor shoots and editing in Adobe Premiere Pro</li></ul></div>
+      <div class="skill"><h3>Agency experience</h3><ul><li>Google Ads and Meta Ads campaigns for client accounts</li><li>YouTube and social media for clients: calendar, creatives, copy, publishing</li><li>Coordinated sales, design and video teams</li></ul></div>
+    </div>
+    <div class="chips" aria-label="Tools">
+      <span class="tag">Meta Ads Manager</span><span class="tag">Google Ads</span><span class="tag">Adobe Premiere Pro</span><span class="tag">Higgsfield</span><span class="tag">ElevenLabs</span><span class="tag">ChatGPT</span><span class="tag">Claude Code</span><span class="tag">Hindi</span><span class="tag">English</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk.</h2>
+    <p class="lede">Looking for a Digital Marketing Executive role where ads, content and data meet. BCA (Computer Science), Amity University Online.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:raishubham8361@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/shubhamrai-content" target="_blank" rel="noopener">linkedin.com/in/shubhamrai-content</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 Shubham Rai · Brand work shown for portfolio purposes; brands belong to their owners.</div></footer>
+
+<script>
+(function(){
+  var d=document.getElementById('lb'),img=d.querySelector('img'),cap=d.querySelector('p');
+  document.getElementById('pgrid').addEventListener('click',function(e){
+    var b=e.target.closest('.post'); if(!b) return;
+    var i=b.querySelector('img'); img.src=i.src; img.alt=i.alt; cap.textContent=b.dataset.cap||'';
+    if(d.showModal) d.showModal(); else window.open(i.src,'_blank');
+  });
+  d.addEventListener('click',function(e){ if(e.target!==img) d.close(); });
+  // pause other videos when one plays
+  document.addEventListener('play',function(e){
+    document.querySelectorAll('video').forEach(function(v){ if(v!==e.target) v.pause(); });
+  },true);
+})();
+</script>
+</body>
+</html>
