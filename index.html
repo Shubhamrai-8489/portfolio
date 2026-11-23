@@ -240,14 +240,17 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
 
 /* custom cursor (mouse only) */
 .cur-dot,.cur-ring{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
-.cur-dot{width:8px;height:8px;background:var(--accent)}
+.cur-dot{width:26px;height:30px;border-radius:0;transform:none;filter:drop-shadow(0 0 6px rgba(255,91,46,.55)) drop-shadow(0 2px 4px rgba(0,0,0,.6));transition:opacity .3s,scale .2s;transform-origin:2px 2px}
+.cur-dot svg{display:block;width:100%;height:100%}
+.cur-hover .cur-dot{scale:1.15}
+.cur-down .cur-dot{scale:.85}
 .cur-ring{width:38px;height:38px;border:1.5px solid rgba(255,91,46,.75);display:grid;place-items:center;transition:width .25s,height .25s,background .25s,border-color .25s,opacity .3s}
 .cur-ring span{font:700 11px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#120a06;opacity:0;transition:opacity .2s}
 .cur-on .cur-dot,.cur-on .cur-ring{opacity:1}
 .cur-hover .cur-ring{width:64px;height:64px;background:rgba(255,91,46,.15)}
 .cur-label .cur-ring{width:78px;height:78px;background:var(--accent);border-color:var(--accent)}
 .cur-label .cur-ring span{opacity:1}
-.cur-label .cur-dot{opacity:0}
+.cur-label .cur-dot{opacity:1}
 .cur-down .cur-ring{width:28px;height:28px}
 @media (hover:hover) and (pointer:fine){html.cur-on,html.cur-on a,html.cur-on button{cursor:none}}
 
@@ -259,7 +262,7 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
 </head>
 <body>
 
-<div class="cur-ring" aria-hidden="true"><span></span></div><div class="cur-dot" aria-hidden="true"></div>
+<div class="cur-ring" aria-hidden="true"><span></span></div><div class="cur-dot" aria-hidden="true"><svg viewBox="0 0 26 30" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb07a"/><stop offset=".45" stop-color="#ff5b2e"/><stop offset="1" stop-color="#c7361a"/></linearGradient></defs><path d="M2 2 L2 24 L8.2 18.4 L12.4 27.6 L16.6 25.7 L12.5 16.6 L21 16.4 Z" fill="url(#cg)" stroke="#120a06" stroke-width="1.6" stroke-linejoin="round"/><path d="M4.6 6.6 L4.6 15" stroke="#fff" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/></svg></div>
 <nav class="nav" aria-label="Main">
   <div class="wrap">
     <a class="logo" href="#top">SHUBHAM<span class="red">.</span></a>
@@ -626,7 +629,7 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
   if(matchMedia('(hover:hover) and (pointer:fine)').matches){
     var root=document.documentElement,dot=document.querySelector('.cur-dot'),ring=document.querySelector('.cur-ring'),lab=ring.querySelector('span');
     var mx=-100,my=-100,rx=-100,ry=-100,k=reduce?1:.18;
-    addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';root.classList.add('cur-on');},{passive:true});
+    addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.transform='translate('+(mx-2)+'px,'+(my-2)+'px)';root.classList.add('cur-on');},{passive:true});
     document.addEventListener('mouseleave',function(){root.classList.remove('cur-on');});
     addEventListener('mousedown',function(){root.classList.add('cur-down');});
     addEventListener('mouseup',function(){root.classList.remove('cur-down');});
