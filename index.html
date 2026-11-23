@@ -211,6 +211,17 @@ footer{padding:28px 0 40px;font-size:12.5px;color:var(--muted)}
 
 /* modal */
 dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1300px);max-height:94vh;color:var(--ink)}
+.hire{max-width:420px;width:calc(100% - 32px);padding:28px 24px 22px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.hire h3{font-family:Anton,sans-serif;font-size:30px;line-height:1.05;margin:0 0 8px;text-transform:uppercase}
+.hire .sub{font-size:14px;color:var(--muted);margin:0 0 18px;text-align:left}
+.hire .x{position:absolute;top:10px;right:10px;width:36px;height:36px;font-size:20px;background:var(--line);color:var(--ink)}
+.hire input{width:100%;box-sizing:border-box;padding:14px 16px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:16px Inter,sans-serif}
+.hire input:focus{border-color:var(--accent);outline:none}
+.hire .send{width:100%;margin-top:10px;padding:14px;border:0;border-radius:999px;background:var(--accent);color:#120a06;font:700 15px Inter,sans-serif;cursor:pointer}
+.hire .send:disabled{opacity:.6}
+.hire .msg{min-height:20px;font-size:14px;margin:12px 0 4px;text-align:left;color:var(--ink)}
+.hire .li{font-size:13px;color:var(--muted)}
+.hire .hp,.sr{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 dialog::backdrop{background:rgba(6,5,5,.92)}
 dialog img,dialog video{display:block;max-width:100%;max-height:82vh;margin:0 auto;border-radius:10px;background:#000}
 dialog p{text-align:center;font-size:14px;margin:12px 0 0;color:#ddd}
@@ -277,7 +288,7 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
     <div class="pills">
       <a href="#about">About</a><a href="#work">Projects</a><a href="#performance">Ads</a><a href="#characters">Characters</a><a href="#organic">Organic</a><a href="#makedly">@make_dly</a><a href="#posts">Posts</a><a href="#contact">Contact</a>
     </div>
-    <a class="cta" href="https://www.linkedin.com/in/shubhamrai-content" target="_blank" rel="noopener">Hire me <span class="dot">↗</span></a>
+    <a class="cta" data-hire href="mailto:raishubham8361@gmail.com?subject=Resume%20request">Hire me <span class="dot">↗</span></a>
   </div>
 </nav>
 
@@ -570,6 +581,21 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
 
 </main>
 
+<dialog id="hire" class="hire" aria-labelledby="hire-t">
+  <form>
+    <button class="x" type="button" aria-label="Close">×</button>
+    <p class="eyebrow">✦ Hire me</p>
+    <h3 id="hire-t">Get my resume in your inbox</h3>
+    <p class="sub">Enter your email and my resume (PDF) will reach you in a few seconds.</p>
+    <label class="sr" for="hire-email">Your email</label>
+    <input id="hire-email" type="email" name="email" required maxlength="120" placeholder="you@company.com" autocomplete="email">
+    <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="send" type="submit">Send my resume</button>
+    <p class="msg" role="status"></p>
+    <a class="li" href="https://www.linkedin.com/in/shubhamrai-content" target="_blank" rel="noopener">Or connect on LinkedIn ↗</a>
+  </form>
+</dialog>
+
 <dialog id="md" aria-label="Preview">
   <button class="x" type="button" aria-label="Close">×</button>
   <div class="slot"></div>
@@ -654,6 +680,25 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
   // hero parallax on the photo
   var ph=document.querySelector('.hero .photo');
   if(!reduce&&innerWidth>=900)addEventListener('scroll',function(){var y=scrollY;if(y<900)ph.style.transform='translateX(-50%) translateY('+(y*.18)+'px)';},{passive:true});
+})();
+</script>
+<script>
+// Hire me: email form -> Apps Script sends the resume. Without ENDPOINT the button stays a mailto link.
+(function(){
+  var ENDPOINT='';
+  var d=document.getElementById('hire');if(!ENDPOINT||!d.showModal)return;
+  var f=d.querySelector('form'),b=f.querySelector('.send'),m=f.querySelector('.msg');
+  document.querySelectorAll('[data-hire]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();m.textContent='';d.showModal();f.email.focus();});});
+  d.addEventListener('click',function(e){if(e.target===d||e.target.classList.contains('x'))d.close();});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();b.disabled=true;b.textContent='Sending…';m.textContent='';
+    fetch(ENDPOINT,{method:'POST',body:new URLSearchParams(new FormData(f))}).then(function(r){return r.json()}).then(function(r){
+      if(r.status==='ok'){m.textContent='✓ Sent! Check your inbox (and the spam folder) in a minute.';f.reset();}
+      else if(r.status==='bad_email'){m.textContent='That email doesn’t look right. Please check it.';}
+      else{m.textContent='Too many requests today. Please email me at raishubham8361@gmail.com.';}
+    }).catch(function(){m.textContent='Couldn’t send right now. Please email me at raishubham8361@gmail.com.';})
+    .then(function(){b.disabled=false;b.textContent='Send my resume';});
+  });
 })();
 </script>
 </body>
