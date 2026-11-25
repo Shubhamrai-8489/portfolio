@@ -218,6 +218,16 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
 
 
 /* instagram reel covers */
+.bagrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px;align-items:start}
+@media(min-width:800px){.bagrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px}}
+.ba{all:unset;cursor:pointer;display:block;border-radius:var(--r);min-width:0}
+.ba:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.ba .frame{position:relative;display:block;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#e9e9eb}
+.ba video{width:100%;height:100%;object-fit:cover;object-position:50% 55%;display:block;transition:transform .5s}
+.ba:hover video{transform:scale(1.03)}
+.ba .len{position:absolute;right:8px;top:8px;padding:3px 9px;border-radius:999px;background:rgba(11,10,10,.82);color:#fff;font-weight:700;font-size:11.5px}
+.ba .t{display:block;padding-top:12px;font-weight:700;text-transform:uppercase;font-size:14.5px;line-height:1.25}
+.ba .s{display:block;margin-top:3px;font-weight:500;font-size:11.5px;color:var(--muted);letter-spacing:.06em}
 .iggrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media(min-width:640px){.iggrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(min-width:1000px){.iggrid{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}}
@@ -275,7 +285,7 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
   <div class="wrap">
     <a class="logo" href="#top">SHUBHAM<span class="red">.</span></a>
     <div class="pills">
-      <a href="#about">About</a><a href="#work">Projects</a><a href="#performance">Ads</a><a href="#characters">Characters</a><a href="#organic">Organic</a><a href="#makedly">@make_dly</a><a href="#posts">Posts</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#work">Projects</a><a href="#beforeafter">Edits</a><a href="#performance">Ads</a><a href="#characters">Characters</a><a href="#organic">Organic</a><a href="#makedly">@make_dly</a><a href="#posts">Posts</a><a href="#contact">Contact</a>
     </div>
     <a class="cta" href="https://www.linkedin.com/in/shubhamrai-content" target="_blank" rel="noopener">Hire me <span class="dot">↗</span></a>
   </div>
@@ -362,6 +372,22 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
       <button class="proj rv" data-cat="personal" data-v="insidedaily-fan" data-cap="@insidedaily.in · Why a fan feels cold · 1,499 views"><div class="thumb"><img loading="lazy" src="media/insidedaily-fan.jpg" alt=""></div><div class="cap"><span class="n">11</span><span class="t">Why a Fan Feels Cold<span class="s">@insidedaily.in · 2D</span></span><span class="arr">→</span></div></button>
       <button class="proj rv" data-cat="personal" data-v="insidedaily-upi" data-cap="@insidedaily.in · How UPI works"><div class="thumb"><img loading="lazy" src="media/insidedaily-upi.jpg" alt=""></div><div class="cap"><span class="n">12</span><span class="t">How UPI Works<span class="s">@insidedaily.in · 2D</span></span><span class="arr">→</span></div></button>
       <button class="proj rv" data-cat="personal" data-v="insidedaily-pressure-cooker-3d" data-cap="@insidedaily.in · Inside a pressure cooker · 3D Blender"><div class="thumb"><img loading="lazy" src="media/insidedaily-pressure-cooker-3d.jpg" alt=""></div><div class="cap"><span class="n">13</span><span class="t">Pressure Cooker 3D<span class="s">@insidedaily.in · Blender</span></span><span class="arr">→</span></div></button>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="blk" id="beforeafter">
+  <div class="wrap">
+    <div class="head rv"><div><p class="eyebrow">Video editing</p><h2>Before / After</h2></div><span class="more">Tap for sound</span></div>
+    <p class="lede rv" style="color:var(--muted);max-width:640px;margin:-8px 0 24px">The raw clip and my final edit, playing in sync. Shot and edited by me.</p>
+    <div class="bagrid">
+      <button class="ba rv" type="button" data-v="ba/discipline" data-cap="Before / After · Discipline · 39 s" aria-label="Play before and after: Discipline, 39 s"><span class="frame"><video muted loop playsinline preload="none" poster="media/ba/discipline.jpg" src="media/ba/discipline.mp4" aria-hidden="true" tabindex="-1"></video><span class="len">▶ 39 s</span></span><span class="t">Discipline<span class="s">Talking head · titles</span></span></button>
+      <button class="ba rv" type="button" data-v="ba/hand-out-of-screen" data-cap="Before / After · Hand out of the screen · 13 s" aria-label="Play before and after: Hand out of the screen, 13 s"><span class="frame"><video muted loop playsinline preload="none" poster="media/ba/hand-out-of-screen.jpg" src="media/ba/hand-out-of-screen.mp4" aria-hidden="true" tabindex="-1"></video><span class="len">▶ 13 s</span></span><span class="t">Hand out of the screen<span class="s">VFX · compositing</span></span></button>
+      <button class="ba rv" type="button" data-v="ba/one-more-can" data-cap="Before / After · One more can · 21 s" aria-label="Play before and after: One more can, 21 s"><span class="frame"><video muted loop playsinline preload="none" poster="media/ba/one-more-can.jpg" src="media/ba/one-more-can.mp4" aria-hidden="true" tabindex="-1"></video><span class="len">▶ 21 s</span></span><span class="t">One more can<span class="s">Colour · beat cut</span></span></button>
+      <button class="ba rv" type="button" data-v="ba/confused-of-late" data-cap="Before / After · Confused of late · 10 s" aria-label="Play before and after: Confused of late, 10 s"><span class="frame"><video muted loop playsinline preload="none" poster="media/ba/confused-of-late.jpg" src="media/ba/confused-of-late.mp4" aria-hidden="true" tabindex="-1"></video><span class="len">▶ 10 s</span></span><span class="t">Confused of late<span class="s">Kinetic text · stop motion</span></span></button>
+      <button class="ba rv" type="button" data-v="ba/content-idea" data-cap="Before / After · Content idea · 14 s" aria-label="Play before and after: Content idea, 14 s"><span class="frame"><video muted loop playsinline preload="none" poster="media/ba/content-idea.jpg" src="media/ba/content-idea.mp4" aria-hidden="true" tabindex="-1"></video><span class="len">▶ 14 s</span></span><span class="t">Content idea<span class="s">Tracked text · colour</span></span></button>
+      <button class="ba rv" type="button" data-v="ba/neend-nahi-aati" data-cap="Before / After · Neend nahi aati · 12 s" aria-label="Play before and after: Neend nahi aati, 12 s"><span class="frame"><video muted loop playsinline preload="none" poster="media/ba/neend-nahi-aati.jpg" src="media/ba/neend-nahi-aati.mp4" aria-hidden="true" tabindex="-1"></video><span class="len">▶ 12 s</span></span><span class="t">Neend nahi aati<span class="s">Cinematic colour · captions</span></span></button>
     </div>
   </div>
 </section>
@@ -586,11 +612,18 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
   md.addEventListener('click',function(e){if(e.target===md||e.target.classList.contains('x'))md.close();});
 
   document.addEventListener('click',function(e){
-    var p=e.target.closest('.proj');
+    var p=e.target.closest('.proj,.ba');
     if(p){var v=p.dataset.v;open('<video controls autoplay playsinline poster="media/'+v+'.jpg"><source src="media/'+v+'.mp4" type="video/mp4"></video>',p.dataset.cap);return;}
     var i=e.target.closest('[data-img]');
     if(i){open('<img src="'+i.dataset.img+'" alt="">',i.dataset.cap);}
   });
+
+  // before/after tiles: silent preview only while on screen
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var bo=new IntersectionObserver(function(es){es.forEach(function(x){
+      if(x.isIntersecting){var r=x.target.play();if(r)r.catch(function(){});}else x.target.pause();});},{threshold:.4});
+    document.querySelectorAll('.ba video').forEach(function(v){bo.observe(v);});
+  }
 
   // filters
   function tabs(sel,attr,items){
@@ -643,10 +676,10 @@ dialog .x{position:fixed;top:12px;right:12px;width:44px;height:44px;border-radiu
     addEventListener('mouseup',function(){root.classList.remove('cur-down');});
     (function loop(){rx+=(mx-rx)*k;ry+=(my-ry)*k;ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';requestAnimationFrame(loop);})();
     document.addEventListener('mouseover',function(e){
-      var t=e.target.closest('.proj,.ig,.post,.sheet button,a,button');
+      var t=e.target.closest('.proj,.ba,.ig,.post,.sheet button,a,button');
       root.classList.remove('cur-hover','cur-label');
       if(!t)return;
-      var l=t.matches('.proj')?'Play':t.matches('.ig')?'Open':t.matches('.post,.sheet button')?'View':'';
+      var l=t.matches('.proj,.ba')?'Play':t.matches('.ig')?'Open':t.matches('.post,.sheet button')?'View':'';
       if(l){lab.textContent=l;root.classList.add('cur-label');}else root.classList.add('cur-hover');
     });
   }
